@@ -58,6 +58,8 @@ RUN $STARTUPDIR/set_user_permission.sh $HOME
 ENV HOME /home/kasm-user
 WORKDIR $HOME
 RUN mkdir -p $HOME && chown -R 1000:0 $HOME
+RUN mkdir -p $HOME/app && chown -R 1000:0 $HOME/app
+COPY . $HOME/app
 
 # Checking mvn, gradle, npm, java version
 RUN mvn -v
